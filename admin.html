@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin | Hotel Tandoor Corner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      :root {
+        --charcoal: #100f0d;
+        --coal: #181512;
+        --panel: rgba(255, 255, 255, 0.055);
+        --ember: #f97316;
+        --flame: #f59e0b;
+        --cream: #fff7ed;
+        --muted: rgba(255, 237, 213, 0.72);
+      }
+
+      body {
+        min-height: 100vh;
+        background: var(--charcoal);
+        color: var(--cream);
+        font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      .navbar {
+        background: rgba(16, 15, 13, 0.94);
+      }
+
+      .brand-font {
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      .panel {
+        border: 1px solid rgba(255, 237, 213, 0.12);
+        border-radius: 0.75rem;
+        background: var(--panel);
+      }
+
+      .btn-ember {
+        --bs-btn-bg: var(--ember);
+        --bs-btn-border-color: var(--ember);
+        --bs-btn-hover-bg: #ea580c;
+        --bs-btn-hover-border-color: #ea580c;
+        --bs-btn-color: #fff;
+        --bs-btn-hover-color: #fff;
+      }
+
+      .btn-outline-warm {
+        --bs-btn-color: var(--cream);
+        --bs-btn-border-color: rgba(255, 237, 213, 0.28);
+        --bs-btn-hover-bg: rgba(255, 255, 255, 0.08);
+        --bs-btn-hover-border-color: var(--flame);
+        --bs-btn-hover-color: var(--cream);
+      }
+
+      .form-control,
+      .form-select {
+        border-color: rgba(255, 237, 213, 0.16);
+        background-color: rgba(0, 0, 0, 0.28);
+        color: var(--cream);
+      }
+
+      .form-control::placeholder {
+        color: rgba(255, 237, 213, 0.45);
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--flame);
+        background-color: rgba(0, 0, 0, 0.34);
+        box-shadow: 0 0 0 0.2rem rgba(249, 115, 22, 0.18);
+        color: var(--cream);
+      }
+
+      .form-select option {
+        color: #111827;
+      }
+
+      .text-muted-warm {
+        color: var(--muted);
+      }
+
+      .text-flame {
+        color: var(--flame);
+      }
+
+      .table-dark {
+        --bs-table-bg: transparent;
+        --bs-table-border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      main {
+        padding-top: 5.5rem;
+      }
+
+      @media (max-width: 767.98px) {
+        main {
+          padding-top: 4.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar fixed-top border-bottom border-white border-opacity-10">
+      <div class="container">
+        <a class="navbar-brand brand-font text-warning fs-4" href="index.html">Hotel Tandoor Corner</a>
+        <div class="d-flex gap-2">
+          <button id="refreshButton" class="btn btn-outline-warm rounded-pill px-3" type="button">Refresh</button>
+          <a class="btn btn-ember rounded-pill px-3" href="index.html">User Site</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="container pb-5">
+        <div class="row g-4 align-items-end mb-4">
+          <div class="col-lg">
+            <p class="text-flame text-uppercase fw-bold small mb-2" style="letter-spacing: 0.18em">Admin Panel</p>
+            <h1 class="brand-font display-5 mb-2">Orders and Reservations</h1>
+            <p class="text-muted-warm mb-0">Track kitchen orders, payment status, and table requests from one responsive dashboard.</p>
+          </div>
+          <div class="col-lg-4">
+            <form id="loginForm" class="panel p-3">
+              <label class="form-label small text-muted-warm" for="adminToken">Admin token</label>
+              <div class="input-group">
+                <input id="adminToken" class="form-control" type="password" placeholder="Default: admin123" autocomplete="current-password" />
+                <button class="btn btn-ember" type="submit">Login</button>
+              </div>
+              <p id="loginMessage" class="small text-muted-warm mb-0 mt-2"></p>
+            </form>
+          </div>
+        </div>
+
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-lg-3">
+            <div class="panel p-3 h-100">
+              <p class="small text-muted-warm mb-1">Orders</p>
+              <p id="orderCount" class="h3 mb-0">0</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="panel p-3 h-100">
+              <p class="small text-muted-warm mb-1">Revenue</p>
+              <p id="revenueTotal" class="h3 mb-0">&#8377;0</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="panel p-3 h-100">
+              <p class="small text-muted-warm mb-1">Paid Orders</p>
+              <p id="paidCount" class="h3 mb-0">0</p>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="panel p-3 h-100">
+              <p class="small text-muted-warm mb-1">Reservations</p>
+              <p id="reservationCount" class="h3 mb-0">0</p>
+            </div>
+          </div>
+        </div>
+
+        <ul class="nav nav-pills gap-2 mb-4" id="adminTabs" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active rounded-pill" id="orders-tab" data-bs-toggle="pill" data-bs-target="#ordersPanel" type="button" role="tab">Orders</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link rounded-pill" id="reservations-tab" data-bs-toggle="pill" data-bs-target="#reservationsPanel" type="button" role="tab">Reservations</button>
+          </li>
+        </ul>
+
+        <div class="tab-content">
+          <section class="tab-pane fade show active" id="ordersPanel" role="tabpanel" aria-labelledby="orders-tab">
+            <div class="panel p-0 overflow-hidden">
+              <div class="table-responsive d-none d-lg-block">
+                <table class="table table-dark align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th>Order</th>
+                      <th>Customer</th>
+                      <th>Items</th>
+                      <th>Total</th>
+                      <th>Payment</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ordersTable"></tbody>
+                </table>
+              </div>
+              <div id="ordersCards" class="vstack gap-3 p-3 d-lg-none"></div>
+            </div>
+          </section>
+
+          <section class="tab-pane fade" id="reservationsPanel" role="tabpanel" aria-labelledby="reservations-tab">
+            <div class="panel p-0 overflow-hidden">
+              <div class="table-responsive d-none d-lg-block">
+                <table class="table table-dark align-middle mb-0">
+                  <thead>
+                    <tr>
+                      <th>Reservation</th>
+                      <th>Guest</th>
+                      <th>Date</th>
+                      <th>People</th>
+                      <th>Seating</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="reservationsTable"></tbody>
+                </table>
+              </div>
+              <div id="reservationsCards" class="vstack gap-3 p-3 d-lg-none"></div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="admin.js" defer></script>
+  </body>
+</html>

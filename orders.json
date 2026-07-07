@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ORD-20260507132037-7D9O",
+    "createdAt": "2026-05-07T13:20:37.191Z",
+    "status": "received",
+    "customer": {
+      "name": "sanchita sanjay ravan",
+      "phone": "1444444444"
+    },
+    "fulfillment": "dine-in",
+    "notes": "no",
+    "items": [
+      {
+        "id": "chicken-tikka",
+        "name": "Chicken Tikka",
+        "price": 330,
+        "quantity": 1,
+        "lineTotal": 330
+      },
+      {
+        "id": "tandoori-broccoli",
+        "name": "Tandoori Broccoli",
+        "price": 250,
+        "quantity": 1,
+        "lineTotal": 250
+      }
+    ],
+    "subtotal": 580,
+    "packaging": 20,
+    "total": 600
+  }
+]

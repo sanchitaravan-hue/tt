@@ -1,0 +1,122 @@
+[
+  {
+    "id": "paneer-tikka",
+    "name": "Paneer Tikka",
+    "category": "Tandoori Veg",
+    "description": "Cottage cheese cubes marinated with hung curd, kasuri methi, and ember-roasted peppers.",
+    "price": 260,
+    "spice": 2,
+    "rating": 4.5,
+    "signature": true
+  },
+  {
+    "id": "mushroom-65",
+    "name": "Mushroom 65",
+    "category": "Tandoori Veg",
+    "description": "Crisp mushrooms tossed in curry leaf, chilli, garlic, and smoky masala.",
+    "price": 230,
+    "spice": 3,
+    "rating": 4.3,
+    "signature": false
+  },
+  {
+    "id": "tandoori-broccoli",
+    "name": "Tandoori Broccoli",
+    "category": "Tandoori Veg",
+    "description": "Charred broccoli florets with cheese, cream, pepper, and lime.",
+    "price": 250,
+    "spice": 1,
+    "rating": 4.2,
+    "signature": false
+  },
+  {
+    "id": "chicken-tikka",
+    "name": "Chicken Tikka",
+    "category": "Chef's Signature Grills",
+    "description": "Boneless chicken, royal red marinade, coal smoke, mint chutney, and onion laccha.",
+    "price": 330,
+    "spice": 2,
+    "rating": 4.8,
+    "signature": true
+  },
+  {
+    "id": "seekh-kebab",
+    "name": "Mutton Seekh Kebab",
+    "category": "Chef's Signature Grills",
+    "description": "Hand-minced mutton, garam masala, green chilli, and a deep tandoor char.",
+    "price": 390,
+    "spice": 3,
+    "rating": 4.7,
+    "signature": true
+  },
+  {
+    "id": "malai-kebab",
+    "name": "Murgh Malai Kebab",
+    "category": "Chef's Signature Grills",
+    "description": "Creamy cashew marinade, cardamom, mild smoke, and a soft finish.",
+    "price": 350,
+    "spice": 1,
+    "rating": 4.6,
+    "signature": true
+  },
+  {
+    "id": "butter-chicken",
+    "name": "Butter Chicken",
+    "category": "Mughlai Mains",
+    "description": "Tandoori chicken folded into tomato, butter, cream, and fenugreek gravy.",
+    "price": 360,
+    "spice": 1,
+    "rating": 4.7,
+    "signature": true
+  },
+  {
+    "id": "dal-tadka",
+    "name": "Dal Tadka",
+    "category": "Mughlai Mains",
+    "description": "Yellow lentils finished with ghee, garlic, cumin, and a tandoor-side tempering.",
+    "price": 190,
+    "spice": 1,
+    "rating": 4.4,
+    "signature": false
+  },
+  {
+    "id": "mutton-rogan",
+    "name": "Mutton Rogan Josh",
+    "category": "Mughlai Mains",
+    "description": "Slow-cooked mutton in aromatic red gravy with Kashmiri chilli and warm spices.",
+    "price": 430,
+    "spice": 2,
+    "rating": 4.6,
+    "signature": true
+  },
+  {
+    "id": "garlic-naan",
+    "name": "Butter Garlic Naan",
+    "category": "Breads",
+    "description": "Tandoor-puffed naan brushed with garlic butter and coriander.",
+    "price": 70,
+    "spice": 0,
+    "rating": 4.5,
+    "signature": false
+  },
+  {
+    "id": "kulcha",
+    "name": "Amritsari Kulcha",
+    "category": "Breads",
+    "description": "Stuffed kulcha with potato, onion, ajwain, butter, and pickle masala.",
+    "price": 110,
+    "spice": 1,
+    "rating": 4.3,
+    "signature": false
+  },
+  {
+    "id": "rumali-roti",
+    "name": "Rumali Roti",
+    "category": "Breads",
+    "description": "Soft folded flatbread for kebabs, gravies, and late-night sharing plates.",
+    "price": 45,
+    "spice": 0,
+    "rating": 4.1,
+    "signature": false
+  }
+]
